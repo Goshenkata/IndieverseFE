@@ -1,0 +1,12 @@
+<div class="col">
+  <div class="card h-100">
+    <a mdbRipple rippleColor="light" href="#!">
+      <img [src]="cardData.src" class="card-img-top" alt="Skyscrapers"/>
+    </a>
+    <div class="card-body g-100">
+      <h5 class="card-title">{{cardData.title}}</h5>
+      <p class="card-text" [innerHTML]="cardData.text">
+      </p>
+    </div>
+  </div>
+</div>

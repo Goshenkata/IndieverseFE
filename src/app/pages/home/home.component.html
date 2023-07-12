@@ -1,0 +1,9 @@
+<ng-template *ngIf="userService.isLoggedIn(); else guestView">
+</ng-template>
+<ng-template #guestView>
+  <div>
+    <app-home-jumbotron></app-home-jumbotron>
+    <hr class="hr hr-blurry my-4">
+    <app-home-info></app-home-info>
+  </div>
+</ng-template>

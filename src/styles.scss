@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss';
+@import 'node_modules/@fortawesome/fontawesome-free/scss/solid.scss';
+@import 'node_modules/@fortawesome/fontawesome-free/scss/regular.scss';
+@import 'node_modules/@fortawesome/fontawesome-free/scss/brands.scss';
+
+@import 'node_modules/mdb-angular-ui-kit/assets/scss/mdb.scss';
+
+.lg-50 {
+  background-color: $light-green-50;
+}
+.lg-100 {
+  background-color: $light-green-100;
+}
+.g-50 {
+  background-color: $green-50;
+}
+.g-100 {
+  background-color: $green-100;
+}
+.g-200 {
+  background-color: $green-200;
+}

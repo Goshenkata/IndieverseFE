@@ -1,0 +1,8 @@
+@import 'node_modules/mdb-angular-ui-kit/assets/scss/mdb.scss';
+
+.hamburgerLink {
+  background-color: $green-200;
+}
+.hamburgerLink :hover {
+  background-color: $green-300;
+}
