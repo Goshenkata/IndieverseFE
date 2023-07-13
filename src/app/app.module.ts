@@ -26,6 +26,9 @@ import { HomeInfoComponent } from './components/home/home-info/home-info.compone
 import { CardComponent } from './components/home/card/card.component';
 import {NgOptimizedImage} from "@angular/common";
 import { FooterComponent } from './components/footer/footer.component';
+import { LoginComponent } from './pages/login/login.component';
+import {RegisterComponent} from "./pages/register/register.component";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -36,6 +39,8 @@ import { FooterComponent } from './components/footer/footer.component';
     HomeInfoComponent,
     CardComponent,
     FooterComponent,
+    RegisterComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,7 +61,8 @@ import { FooterComponent } from './components/footer/footer.component';
     MdbTooltipModule,
     MdbValidationModule,
     BrowserAnimationsModule,
-    NgOptimizedImage
+    NgOptimizedImage,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
