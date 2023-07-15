@@ -27,8 +27,10 @@ import { CardComponent } from './components/home/card/card.component';
 import {NgOptimizedImage} from "@angular/common";
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './pages/login/login.component';
-import {RegisterComponent} from "./pages/register/register.component";
+import {RegisterComponent} from "./components/register/register.component";
 import {FormsModule} from "@angular/forms";
+import { RegistrationPageComponent } from './pages/registration-page/registration-page.component';
+import { RegisterUserDataComponent } from './components/register-user-data/register-user-data.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,8 @@ import {FormsModule} from "@angular/forms";
     FooterComponent,
     RegisterComponent,
     LoginComponent,
+    RegistrationPageComponent,
+    RegisterUserDataComponent,
   ],
   imports: [
     BrowserModule,
