@@ -95,6 +95,25 @@
                            for="email">Email is not valid</label>
                   </div>
 
+                  <div class="mb-4">
+                    <div class="d-flex flex-row align-items-center">
+                      <i class="fas fa-phone fa-lg me-3 fa-fw"></i>
+                      <mdb-form-control>
+                        <input mdbInput type="tel" id="telephone" name="telephone" ngModel class="form-control"
+                               pattern="\+\d{12}"
+                               value="+"
+                               #telephone="ngModel"
+                               required
+                        />
+
+                        <label mdbLabel class="form-label" for="telephone">Phone number</label>
+                      </mdb-form-control>
+                    </div>
+                    <label *ngIf="f.submitted && telephone.invalid" class="text-muted text-secondary"
+                           for="email">Phone number invalid, please use the international standard: +359XXXXXXXXX"</label>
+                  </div>
+
+
 
                   <div class="mb-4">
                     <div class="d-flex flex-row align-items-center">

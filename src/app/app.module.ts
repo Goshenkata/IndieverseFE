@@ -31,6 +31,10 @@ import {RegisterComponent} from "./components/register/register.component";
 import {FormsModule} from "@angular/forms";
 import { RegistrationPageComponent } from './pages/registration-page/registration-page.component';
 import { RegisterUserDataComponent } from './components/register-user-data/register-user-data.component';
+import {MatInputModule} from "@angular/material/input";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {DatepickerOverviewExample} from "./components/datepicker/datepicker-component";
+import {MAT_DATE_LOCALE} from "@angular/material/core";
 
 @NgModule({
   declarations: [
@@ -67,8 +71,14 @@ import { RegisterUserDataComponent } from './components/register-user-data/regis
     BrowserAnimationsModule,
     NgOptimizedImage,
     FormsModule,
+    MatInputModule,
+    MatDatepickerModule,
+    DatepickerOverviewExample,
   ],
-  providers: [],
+  providers: [
+
+    {provide: MAT_DATE_LOCALE, useValue: 'en-GB'},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
