@@ -1,0 +1,91 @@
+<p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4" xmlns="http://www.w3.org/1999/html">Address information</p>
+
+<form class="mx-1 mx-md-4" #f="ngForm" (ngSubmit)="submit()">
+
+  <div class="mb-4">
+    <div class="d-flex flex-row align-items-center">
+      <i class="fas fa-flag fa-lg me-3 fa-fw"></i>
+      <div mdbDropdown class="dropdown">
+
+        <div class="input-group">
+          <mdb-form-control>
+            <input
+              ngModel
+              #search
+              mdbInput
+              (keyup)="searchItems()"
+              type="search"
+              name="search"
+              id="search"
+              mdbDropdownToggle
+              class="form-control dropdown-toggle"
+              required
+            />
+            <label mdbLabel class="form-label" for="search">Country</label>
+          </mdb-form-control>
+        </div>
+        <ul
+          mdbDropdownMenu
+          class="dropdown-menu"
+          aria-labelledby="dropdownMenuButton"
+        >
+          <li *ngFor="let item of filteredItems.slice(0,10)">
+            <a class="dropdown-item" (click)="onCountrySelected(item)">
+              <i class="flag" [ngClass]="'flag-' + item.icon"></i>
+              <span>
+            {{ item.name }}
+            </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <label *ngIf="f.submitted && !countryIsValid(search.value)" class="text-muted text-secondary"
+           for="search">Country is not valid</label>
+  </div>
+
+  <div class="mb-4">
+    <div class="d-flex flex-row align-items-center">
+      <i class="fas fa-city fa-lg me-3 fa-fw"></i>
+      <mdb-form-control>
+        <input mdbInput type="text" id="city" name="city" ngModel class="form-control"
+               #city="ngModel"
+               minlength="1"
+               maxlength="100"
+               required
+        />
+
+        <label mdbLabel class="form-label" for="city">City</label>
+      </mdb-form-control>
+    </div>
+    <label *ngIf="f.submitted && city.invalid" class="text-muted text-secondary"
+           for="city">City is not valid</label>
+  </div>
+
+
+  <div class="mb-4">
+    <div class="d-flex flex-row align-items-center">
+      <i class="fas fa-address-card fa-lg me-3 fa-fw"></i>
+      <mdb-form-control>
+        <input mdbInput type="text" id="address" name="address" ngModel class="form-control"
+               #address="ngModel"
+               minlength="3"
+               maxlength="100"
+               required
+        />
+
+        <label mdbLabel class="form-label" for="address">Address</label>
+      </mdb-form-control>
+    </div>
+    <label *ngIf="f.submitted && address.invalid" class="text-muted text-secondary"
+           for="city">Address is not valid</label>
+  </div>
+
+  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+    <button type="submit" class="btn btn-primary btn-lg">
+      Next
+    </button>
+  </div>
+
+
+</form>

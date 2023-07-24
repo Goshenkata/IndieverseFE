@@ -1,0 +1,31 @@
+import {CountryDropdownItem} from "../../models/CountryDropdownItem";
+
+export const countries: CountryDropdownItem[] = [
+  { name: 'Austria', icon: 'at' },
+  { name: 'Belgium', icon: 'be' },
+  { name: 'Bulgaria', icon: 'bg' },
+  { name: 'Croatia', icon: 'hr' },
+  { name: 'Cyprus', icon: 'cy' },
+  { name: 'Czech Republic', icon: 'cz' },
+  { name: 'Denmark', icon: 'dk' },
+  { name: 'Estonia', icon: 'ee' },
+  { name: 'Finland', icon: 'fi' },
+  { name: 'France', icon: 'fr' },
+  { name: 'Germany', icon: 'de' },
+  { name: 'Greece', icon: 'gr' },
+  { name: 'Hungary', icon: 'hu' },
+  { name: 'Ireland', icon: 'ie' },
+  { name: 'Italy', icon: 'it' },
+  { name: 'Latvia', icon: 'lv' },
+  { name: 'Lithuania', icon: 'lt' },
+  { name: 'Luxembourg', icon: 'lu' },
+  { name: 'Malta', icon: 'mt' },
+  { name: 'Netherlands', icon: 'nl' },
+  { name: 'Poland', icon: 'pl' },
+  { name: 'Portugal', icon: 'pt' },
+  { name: 'Romania', icon: 'ro' },
+  { name: 'Slovakia', icon: 'sk' },
+  { name: 'Slovenia', icon: 'si' },
+  { name: 'Spain', icon: 'es' },
+  { name: 'Sweden', icon: 'se' }
+];

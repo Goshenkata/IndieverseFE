@@ -1,1 +1,151 @@
-<h1>:D</h1>
+<p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Open account</p>
+
+<form class="mx-1 mx-md-4" #f="ngForm" (ngSubmit)="submit()">
+  <div class="mb-4">
+    <div class="d-flex">
+      <div class="d-flex flex-row align-items-center">
+        <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+        <mdb-form-control>
+          <input
+            mdbInput
+            ngModel
+            name="username"
+            #username="ngModel"
+            type="text"
+            id="username"
+            class="form-control"
+            aria-describedby="characterCounter"
+            maxlength="20"
+            minlength="3"
+            required
+          />
+          <label mdbLabel class="form-label" for="username">Username</label>
+          <span class="trailing pe-auto clear d-none" tabindex="0">✕</span>
+          <div class="form-helper">
+            <div class="form-counter">{{ username.value.length }} / 20</div>
+          </div>
+        </mdb-form-control>
+      </div>
+
+    </div>
+    <label *ngIf="f.submitted && username.invalid" class="text-muted text-secondary mt-3"
+           for="username">Username name must be between 3 and 20 characters</label>
+  </div>
+
+
+  <div class="mb-4">
+    <div class="d-flex flex-row align-items-center">
+      <i class="fas fa-address-card fa-lg me-3 fa-fw"></i>
+      <div class="d-flex flex-column gap-2">
+        <mdb-form-control>
+          <input mdbInput type="text" id="firstName" name="firstName" ngModel class="form-control"
+                 #firstName="ngModel"
+                 maxlength="20"
+                 minlength="3"
+                 required
+          />
+          <label mdbLabel class="form-label" for="firstName">First name</label>
+        </mdb-form-control>
+        <mdb-form-control>
+          <input mdbInput type="text" id="lastName" name="lastName" ngModel class="form-control"
+                 #lastName="ngModel"
+                 minlength="3"
+                 maxlength="20"
+                 required
+          />
+          <label mdbLabel class="form-label" for="lastName">Last name</label>
+        </mdb-form-control>
+      </div>
+    </div>
+    <label *ngIf="f.submitted && (firstName.invalid || lastName.invalid)"
+           class="text-muted text-secondary"
+           for="firstName">First and last name must be between 3 and 20 characters</label>
+  </div>
+
+  <div class="mb-4">
+    <div class="d-flex flex-row align-items-center">
+      <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+      <mdb-form-control>
+        <input mdbInput type="email" id="email" name="email" ngModel class="form-control"
+               email
+               #email="ngModel"
+               required
+        />
+
+        <label mdbLabel class="form-label" for="email">Email</label>
+      </mdb-form-control>
+    </div>
+    <label *ngIf="f.submitted && email.invalid" class="text-muted text-secondary"
+           for="email">Email is not valid</label>
+  </div>
+
+  <div class="mb-4">
+    <div class="d-flex flex-row align-items-center">
+      <i class="fas fa-phone fa-lg me-3 fa-fw"></i>
+      <mdb-form-control>
+        <input mdbInput type="tel" id="telephone" name="telephone" ngModel class="form-control"
+               pattern="\+\d{12}"
+               value="+"
+               #telephone="ngModel"
+               required
+        />
+
+        <label mdbLabel class="form-label" for="telephone">Phone number</label>
+      </mdb-form-control>
+    </div>
+    <label *ngIf="f.submitted && telephone.invalid" class="text-muted text-secondary"
+           for="email">Phone number invalid, please use the international standard: +359XXXXXXXXX"</label>
+  </div>
+
+  <div class="mb-4">
+    <div class="d-flex flex-row align-items-center">
+
+      <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+      <mdb-form-control>
+        <input mdbInput type="password" id="password" name="password" ngModel class="form-control"
+               #password="ngModel"
+               pattern="^(?=.*[A-Z])(?=.*\d).{6,32}$"
+               required
+        />
+        <label mdbLabel class="form-label" for="password">Password</label>
+      </mdb-form-control>
+    </div>
+    <label *ngIf="f.submitted && password.invalid" class="text-muted text-secondary" for="password">Password
+      must be between
+      6 and 32 characters, and must contain atleast 1 capital letter and 1 digit</label>
+  </div>
+
+  <div class="mb-4">
+    <div class="d-flex flex-row align-items-center">
+      <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+      <mdb-form-control>
+        <input mdbInput type="password" id="confirmPassword" name="confirmPassword" ngModel
+               required
+               #confirmPassword="ngModel"
+               [pattern]="password.value"
+               class="form-control"/>
+
+        <label mdbLabel class="form-label" for="confirmPassword">Confirm password</label>
+      </mdb-form-control>
+    </div>
+    <label *ngIf="f.submitted && confirmPassword.value != password.value"
+           class="text-muted text-secondary"
+           for="confirmPassword">Passwords do not match</label>
+  </div>
+
+
+  <div class="form-check d-flex justify-content-center mb-5">
+    <input class="form-check-input me-2" type="checkbox" name="hasAgreed" ngModel #hasAgreed="ngModel"
+           value="" id="form2Example3c" required/>
+    <label class="form-check-label" for="form2Example3c">
+      I agree all statements in <a href="#!">Terms of service</a>
+    </label>
+  </div>
+
+  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+    <button type="submit" [ngClass]="{'disabled': hasAgreed.invalid}" class="btn btn-primary btn-lg">
+      Next
+    </button>
+  </div>
+
+</form>

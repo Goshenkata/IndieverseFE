@@ -9,16 +9,12 @@ import {RegisterStage} from "../../enums/RegisterStage";
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit{
-  @ViewChild('f') form!: NgForm
   constructor(protected userService: UserService) {
   }
 
   ngOnInit() {
   }
 
-  submit() {
-    if (this.form.valid) {
-      this.userService.registerStage = RegisterStage.ADRESSDATA
-    }
-  }
+
+  protected readonly RegisterStage = RegisterStage;
 }

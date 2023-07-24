@@ -27,14 +27,11 @@ import { CardComponent } from './components/home/card/card.component';
 import {NgOptimizedImage} from "@angular/common";
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './pages/login/login.component';
-import {RegisterComponent} from "./components/register/register.component";
+import {RegisterComponent} from "./pages/register/register.component";
 import {FormsModule} from "@angular/forms";
-import { RegistrationPageComponent } from './pages/registration-page/registration-page.component';
 import { RegisterUserDataComponent } from './components/register-user-data/register-user-data.component';
-import {MatInputModule} from "@angular/material/input";
-import {MatDatepickerModule} from "@angular/material/datepicker";
-import {DatepickerOverviewExample} from "./components/datepicker/datepicker-component";
-import {MAT_DATE_LOCALE} from "@angular/material/core";
+import { RegisterAddressComponent } from './components/register-address/register-address.component';
+import { RegistrationMoneyComponent } from './components/registration-money/registration-money.component';
 
 @NgModule({
   declarations: [
@@ -47,8 +44,9 @@ import {MAT_DATE_LOCALE} from "@angular/material/core";
     FooterComponent,
     RegisterComponent,
     LoginComponent,
-    RegistrationPageComponent,
     RegisterUserDataComponent,
+    RegisterAddressComponent,
+    RegistrationMoneyComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,13 +69,8 @@ import {MAT_DATE_LOCALE} from "@angular/material/core";
     BrowserAnimationsModule,
     NgOptimizedImage,
     FormsModule,
-    MatInputModule,
-    MatDatepickerModule,
-    DatepickerOverviewExample,
   ],
   providers: [
-
-    {provide: MAT_DATE_LOCALE, useValue: 'en-GB'},
   ],
   bootstrap: [AppComponent]
 })
