@@ -7,6 +7,7 @@ import {JwtResponse} from "../models/JwtResponse";
 import {SimpleMessage} from "../models/SimpleMessage";
 import {LoginRequest} from "../models/LoginRequest";
 import {Router} from "@angular/router";
+import {ToastrService} from "ngx-toastr";
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,7 @@ export class UserService {
     })
   }
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router, private toastr: ToastrService) { }
 
   isLoggedIn(): boolean {
     const token = localStorage.getItem('token')
@@ -45,5 +46,18 @@ export class UserService {
 
   login(loginData: LoginRequest) {
     return this.http.post<JwtResponse>('http://localhost:8080/user/login',loginData, this.options);
+  }
+
+  all() {
+    this.http.get("http://localhost:8080/user/test/all", this.options).subscribe({
+      next: (value) => this.toastr.success('Yay'),
+      error: err => this.toastr.error(err.status)
+    })
+  }
+  user() {
+    this.http.get("http://localhost:8080/user/test/user", this.options).subscribe({
+      next: () => this.toastr.success('Yay'),
+      error: err => this.toastr.error(err.status)
+    })
   }
 }
