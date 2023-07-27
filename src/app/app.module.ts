@@ -32,6 +32,8 @@ import {FormsModule} from "@angular/forms";
 import { RegisterUserDataComponent } from './components/register-user-data/register-user-data.component';
 import { RegisterAddressComponent } from './components/register-address/register-address.component';
 import { RegistrationMoneyComponent } from './components/registration-money/registration-money.component';
+import { ToastrModule } from 'ngx-toastr';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -69,6 +71,8 @@ import { RegistrationMoneyComponent } from './components/registration-money/regi
     BrowserAnimationsModule,
     NgOptimizedImage,
     FormsModule,
+    ToastrModule.forRoot(),
+    HttpClientModule
   ],
   providers: [
   ],

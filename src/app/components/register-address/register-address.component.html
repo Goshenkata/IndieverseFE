@@ -11,17 +11,17 @@
           <mdb-form-control>
             <input
               ngModel
-              #search
+              #country="ngModel"
               mdbInput
               (keyup)="searchItems()"
               type="search"
-              name="search"
-              id="search"
+              name="country"
+              id="country"
               mdbDropdownToggle
               class="form-control dropdown-toggle"
               required
             />
-            <label mdbLabel class="form-label" for="search">Country</label>
+            <label mdbLabel class="form-label" for="country">Country</label>
           </mdb-form-control>
         </div>
         <ul
@@ -40,8 +40,8 @@
         </ul>
       </div>
     </div>
-    <label *ngIf="f.submitted && !countryIsValid(search.value)" class="text-muted text-secondary"
-           for="search">Country is not valid</label>
+    <label *ngIf="f.submitted && !countryIsValid(country.value)" class="text-muted text-secondary"
+           for="country">Country is not valid</label>
   </div>
 
   <div class="mb-4">
@@ -82,7 +82,7 @@
   </div>
 
   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-    <button type="submit" class="btn btn-primary btn-lg">
+    <button mdbRipple type="submit" class="btn btn-success btn-lg">
       Next
     </button>
   </div>

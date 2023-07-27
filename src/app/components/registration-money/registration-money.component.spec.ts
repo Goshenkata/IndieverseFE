@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RegistrationMoneyComponent } from './registration-money.component';
 
 describe('RegistrationMoneyComponent', () => {
+
   let component: RegistrationMoneyComponent;
   let fixture: ComponentFixture<RegistrationMoneyComponent>;
 

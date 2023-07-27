@@ -13,7 +13,6 @@ import Fuse from "fuse.js";
 })
 export class RegisterAddressComponent {
   @ViewChild('f') form!: NgForm
-  @ViewChild('search') search!: ElementRef;
   filteredItems: CountryDropdownItem[] = countries;
 
   constructor(protected userService: UserService) {
@@ -22,9 +21,14 @@ export class RegisterAddressComponent {
 
   submit() {
 
-    if (this.form.valid && this.countryIsValid(this.form.value.country)) {
+    const data = this.form.value
+    if (this.form.valid && this.countryIsValid(data.country)) {
+      this.userService.registrationRequest.addressData = {
+        address: data.address,
+        country: data.country,
+        city: data.city
+      }
       this.userService.registerStage = RegisterStage.CASH;
-      this.userService.registrationRequest.addressData = {...this.form.value}
     }
   }
 
@@ -34,14 +38,15 @@ export class RegisterAddressComponent {
       threshold: 0.3
     }
     const fuse = new Fuse(countries, options);
-    this.filteredItems = fuse.search(this.search.nativeElement.value).map(value => value.item);
+    this.filteredItems = fuse.search(this.form.controls['country'].value).map(value => value.item);
   }
 
   onCountrySelected(country: CountryDropdownItem) {
-    this.search.nativeElement.value = country.name;
+    this.form.controls['country'].setValue(country.name)
   }
 
-  countryIsValid(country:string): boolean {
-    return countries.map(value => value.name).includes(country);
+  countryIsValid(country: string): boolean {
+    const arr = countries.map(value => value.name);
+    return arr.includes(country);
   }
 }

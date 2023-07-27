@@ -83,17 +83,17 @@
     <div class="d-flex flex-row align-items-center">
       <i class="fas fa-phone fa-lg me-3 fa-fw"></i>
       <mdb-form-control>
-        <input mdbInput type="tel" id="telephone" name="telephone" ngModel class="form-control"
+        <input mdbInput type="tel" id="phoneNumber" name="phoneNumber" ngModel class="form-control"
                pattern="\+\d{12}"
                value="+"
-               #telephone="ngModel"
+               #phoneNumber="ngModel"
                required
         />
 
-        <label mdbLabel class="form-label" for="telephone">Phone number</label>
+        <label mdbLabel class="form-label" for="phoneNumber">Phone number</label>
       </mdb-form-control>
     </div>
-    <label *ngIf="f.submitted && telephone.invalid" class="text-muted text-secondary"
+    <label *ngIf="f.submitted && phoneNumber.invalid" class="text-muted text-secondary"
            for="email">Phone number invalid, please use the international standard: +359XXXXXXXXX"</label>
   </div>
 
@@ -142,10 +142,15 @@
     </label>
   </div>
 
+  <p class="mb-5 pb-lg-2" style="color: #393f81;">Have an account? <a href="/login"
+                                                                            style="color: #393f81;">Sign in here</a>
+  </p>
+
   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-    <button type="submit" [ngClass]="{'disabled': hasAgreed.invalid}" class="btn btn-primary btn-lg">
+    <button mdbRipple type="submit" [ngClass]="{'disabled': hasAgreed.invalid}" class="btn btn-success btn-lg">
       Next
     </button>
   </div>
+
 
 </form>
