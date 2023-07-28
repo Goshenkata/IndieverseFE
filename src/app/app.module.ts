@@ -35,6 +35,9 @@ import { RegistrationMoneyComponent } from './components/registration-money/regi
 import { ToastrModule } from 'ngx-toastr';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {JwtInterceptor} from "./interceptors/JwtInterceptor";
+import {NgxChartsModule} from "@swimlane/ngx-charts";
+import { CandlestickChartComponent } from './components/candlestick-chart/candlestick-chart.component';
+import {HighchartsChartModule} from "highcharts-angular";
 
 @NgModule({
   declarations: [
@@ -50,6 +53,7 @@ import {JwtInterceptor} from "./interceptors/JwtInterceptor";
     RegisterUserDataComponent,
     RegisterAddressComponent,
     RegistrationMoneyComponent,
+    CandlestickChartComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,7 +77,8 @@ import {JwtInterceptor} from "./interceptors/JwtInterceptor";
     NgOptimizedImage,
     FormsModule,
     ToastrModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    HighchartsChartModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
