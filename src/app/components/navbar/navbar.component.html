@@ -8,6 +8,7 @@
         height="50"
         src="assets/images/logo.png"
       />
+      <small>Indieverse</small>
     </a>
 
     <!-- Toggle button -->
@@ -34,7 +35,7 @@
           <button type="button" class="btn btn-outline-success me-2" mdbRipple rippleColor="dark" (click)="goToLogin()">
             Login
           </button>
-          <button type="button" class="btn btn-success" mdbRipple (click)="goToRegister()">Open account</button>
+          <button type="button" class="btn btn-success" mdbRipple (click)="goToRegister()">Register</button>
         </ng-template>
         <ng-template [ngIf]="userService.isLoggedIn()">
           <button type="button" class="btn btn-outline-success me-2" mdbRipple rippleColor="dark" (click)="userService.logout();">
@@ -48,7 +49,7 @@
             <a class="nav-link text-center" aria-current="page" href="/login">Login</a>
           </li>
           <li class="hamburgerLink rounded-3" mdbRipple>
-            <a class="nav-link active text-center" aria-current="page" href="/register"><b>Open account</b></a>
+            <a class="nav-link active text-center" aria-current="page" href="/register"><b>Register</b></a>
           </li>
         </ng-template>
         <ng-template [ngIf]="userService.isLoggedIn()">

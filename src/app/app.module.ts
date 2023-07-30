@@ -24,7 +24,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { HomeJumbotronComponent } from './components/home/home-jumbotron/home-jumbotron.component';
 import { HomeInfoComponent } from './components/home/home-info/home-info.component';
 import { CardComponent } from './components/home/card/card.component';
-import {NgOptimizedImage} from "@angular/common";
+import {CommonModule, NgOptimizedImage} from "@angular/common";
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './pages/login/login.component';
 import {RegisterComponent} from "./pages/register/register.component";
@@ -35,9 +35,8 @@ import { RegistrationMoneyComponent } from './components/registration-money/regi
 import { ToastrModule } from 'ngx-toastr';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {JwtInterceptor} from "./interceptors/JwtInterceptor";
-import {NgxChartsModule} from "@swimlane/ngx-charts";
-import { CandlestickChartComponent } from './components/candlestick-chart/candlestick-chart.component';
-import {HighchartsChartModule} from "highcharts-angular";
+import { GameComponent } from './components/game/game.component';
+import { LoadingComponent } from './components/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +52,8 @@ import {HighchartsChartModule} from "highcharts-angular";
     RegisterUserDataComponent,
     RegisterAddressComponent,
     RegistrationMoneyComponent,
-    CandlestickChartComponent,
+    GameComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,
@@ -78,7 +78,7 @@ import {HighchartsChartModule} from "highcharts-angular";
     FormsModule,
     ToastrModule.forRoot(),
     HttpClientModule,
-    HighchartsChartModule,
+    CommonModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}

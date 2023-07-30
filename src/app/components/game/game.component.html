@@ -1,0 +1,53 @@
+<div
+  class="m-3 card row"
+>
+  <div class="row">
+    <img
+      *ngIf="game?.imageUrl"
+      src="{{ game?.imageUrl}}"
+      class="img-fluid rounded-start col-12 col-sm-4"
+      alt="image of post"
+    />
+    <div [ngClass]="game?.imageUrl ?'col-md-8' : 'col-md-12'">
+      <div class="card-body">
+        <div
+          class="d-inline-block d-flex flex-column flex-md-row justify-content-between"
+        >
+          <small class="text-muted">
+            <div class="vr x-1"></div>
+            <span>Posted by
+            <a>
+               {{game?.authorUsername}}
+            </a>
+            </span>
+          </small>
+          <small class="text-muted d-flex d-md-block justify-content-between">
+            <button
+              *ngIf="
+                userService.getUsername() == game?.authorUsername
+              "
+              class="btn btn-sm btn-danger mx-2"
+              (click)="delete()"
+            >
+              <i class="fas fa-trash"></i>
+              <span class="ms-2 fw-bold d-none d-md-inline-block">Delete</span>
+            </button>
+            <button
+              *ngIf="
+                !ownsGame &&
+                userService.getUsername() !== game?.authorUsername
+              "
+              class="btn btn-sm btn-success mx-2"
+              (click)="buy()"
+            >
+              <i class="fas fa-shopping-cart"></i>
+              <span class="ms-2 fw-bold d-none d-md-inline-block">Buy</span>
+            </button>
+          </small>
+        </div>
+        <h4 class="my-2">{{ game?.name }}</h4>
+        <p class="card-text pt-2 pt-sm-0">{{game?.description}}</p>
+      </div>
+    </div>
+  </div>
+</div>

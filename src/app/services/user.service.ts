@@ -60,4 +60,12 @@ export class UserService {
       error: err => this.toastr.error(err.status)
     })
   }
+
+  getUsername() {
+    return localStorage.getItem('username')
+  }
+
+  ownsGame(id: number | undefined): Observable<boolean> {
+    return this.http.get<boolean>('http://localhost:8080/games/owns/' + id)
+  }
 }
