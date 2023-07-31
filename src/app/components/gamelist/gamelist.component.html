@@ -1,8 +1,8 @@
 <div class="container">
   <div class="bg-danger rounded-9" *ngIf="games.length == 0">
-    <h1 class="text-center my-5 p-4 text-light"><i class="fas fa-warning"></i>There are no games published games</h1>
+    <h1 class="text-center my-5 p-4 text-light"><i class="fas fa-warning"></i>  No games found...</h1>
   </div>
-  <div class="d-inline-block" *ngFor="let game of games">
+  <div *ngFor="let game of games">
     <app-game [game]="game"></app-game>
   </div>
 </div>
