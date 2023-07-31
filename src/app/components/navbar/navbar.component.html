@@ -30,17 +30,25 @@
       #basicNavbar="mdbCollapse"
     >
       <!-- Left links -->
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-none d-lg-inline ">
-        <ng-template [ngIf]="!userService.isLoggedIn()">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-none d-lg-inline">
+        <div class="d-flex gap-2" *ngIf="!userService.isLoggedIn()">
           <button type="button" class="btn btn-outline-success me-2" mdbRipple rippleColor="dark" (click)="goToLogin()">
             Login
           </button>
           <button type="button" class="btn btn-success" mdbRipple (click)="goToRegister()">Register</button>
-        </ng-template>
-        <ng-template [ngIf]="userService.isLoggedIn()">
+        </div>
+        <div class="d-flex gap-2" *ngIf="userService.isLoggedIn()">
           <button type="button" class="btn me-2 btn-tertiary text-success btn-lg" mdbRipple rippleColor="light"
-                  (click)="userService.logout();">
+                  (click)="router.navigateByUrl('/publish')">
             Publish
+          </button>
+          <button type="button" class="btn me-2 btn-tertiary text-success btn-lg" mdbRipple rippleColor="light"
+                  (click)="router.navigateByUrl('/mygames')">
+            My Games
+          </button>
+          <button type="button" class="btn me-2 btn-tertiary text-success btn-lg" mdbRipple rippleColor="light"
+                  (click)="router.navigateByUrl('/user/' + userService.getUsername())">
+            Profile
           </button>
           <button type="button" class="btn me-2 btn-tertiary text-success btn-lg" mdbRipple rippleColor="light"
                   (click)="userService.logout();">
@@ -51,7 +59,7 @@
                   class="btn me-2 btn-tertiary text-dark btn-lg">
             {{balance}}$
           </button>
-        </ng-template>
+        </div>
       </ul>
       <ul class="d-block d-lg-none navbar-nav ms-auto mb-2 mb-lg-0 gap-2 d-flex">
         <ng-template [ngIf]="!userService.isLoggedIn()">
@@ -69,8 +77,15 @@
           <li class="hamburgerLink rounded-3" mdbRipple>
             <a class="nav-link text-center" aria-current="page" href="/publish">Publish</a>
           </li>
-          <li>
-            Balance: 122.00$
+
+          <li class="hamburgerLink rounded-3" mdbRipple>
+            <a class="nav-link text-center" aria-current="page" href="/mygames">My Games</a>
+          </li>
+          <li class="hamburgerLink rounded-3" mdbRipple>
+            <a class="nav-link text-center" aria-current="page" [href]="'/user/' + userService.getUsername()">Profile</a>
+          </li>
+          <li class="hamburgerLink rounded-3" mdbRipple>
+            <a class="nav-link text-center" aria-current="page" (click)="openModal()">Balance: {{balance}}$</a>
           </li>
         </ng-template>
 

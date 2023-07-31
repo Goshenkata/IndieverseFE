@@ -4,6 +4,7 @@ import {UserService} from "../../services/user.service";
 import {ToastrService} from "ngx-toastr";
 import {MdbModalRef, MdbModalService} from "mdb-angular-ui-kit/modal";
 import {DepositComponent} from "../deposit/deposit.component";
+import {raceInit} from "rxjs/internal/observable/race";
 
 @Component({
   selector: 'app-navbar',
@@ -39,4 +40,6 @@ export class NavbarComponent implements OnInit {
       })
     }
   }
+
+  protected readonly raceInit = raceInit;
 }

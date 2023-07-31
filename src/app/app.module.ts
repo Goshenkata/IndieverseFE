@@ -41,6 +41,8 @@ import { PublishComponent } from './pages/publish/publish.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { DepositComponent } from './components/deposit/deposit.component';
 import { GamelistComponent } from './components/gamelist/gamelist.component';
+import { MygamesComponent } from './pages/mygames/mygames.component';
+import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +64,8 @@ import { GamelistComponent } from './components/gamelist/gamelist.component';
     NotFoundComponent,
     DepositComponent,
     GamelistComponent,
+    MygamesComponent,
+    UserProfileComponent,
   ],
   imports: [
     BrowserModule,
