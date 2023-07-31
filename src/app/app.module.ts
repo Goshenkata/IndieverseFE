@@ -37,6 +37,10 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {JwtInterceptor} from "./interceptors/JwtInterceptor";
 import { GameComponent } from './components/game/game.component';
 import { LoadingComponent } from './components/loading/loading.component';
+import { PublishComponent } from './pages/publish/publish.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { DepositComponent } from './components/deposit/deposit.component';
+import { GamelistComponent } from './components/gamelist/gamelist.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +58,10 @@ import { LoadingComponent } from './components/loading/loading.component';
     RegistrationMoneyComponent,
     GameComponent,
     LoadingComponent,
+    PublishComponent,
+    NotFoundComponent,
+    DepositComponent,
+    GamelistComponent,
   ],
   imports: [
     BrowserModule,

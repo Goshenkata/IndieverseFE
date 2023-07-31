@@ -40,9 +40,11 @@
               class="btn btn-sm btn-success mx-2"
               (click)="buy()"
             >
-              <i class="fas fa-shopping-cart"></i>
-              <span class="ms-2 fw-bold d-none d-md-inline-block">Buy</span>
+              <i class="fas fa-shopping-cart d-none d-md-inline-block"></i>
+              <span
+                class="ms-2 fw-bold">Buy {{game?.price}}$</span>
             </button>
+            <h4 *ngIf="ownsGame"><span class="badge badge-success">Installed</span></h4>
           </small>
         </div>
         <h4 class="my-2">{{ game?.name }}</h4>

@@ -1,0 +1,25 @@
+<div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLabel">Deposit cash</h5>
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    (click)="modalRef?.close()"
+  ></button>
+</div>
+<div class="modal-body d-flex justify-content-center">
+  <form #f="ngForm">
+    <div class="d-flex flex-row align-items-center">
+      <i class="fas fa-euro-sign fa-lg me-3 fa-fw"></i>
+      <mdb-form-control>
+        <mdb-range [min]="0" [max]="100" [step]="5" ngModel name="money" id="money"></mdb-range>
+      </mdb-form-control>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="modalRef?.close()">
+    Close
+  </button>
+  <button type="button" class="btn btn-success" (click)="deposit()">Deposit</button>
+</div>

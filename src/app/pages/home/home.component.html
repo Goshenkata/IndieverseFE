@@ -1,17 +1,10 @@
 <div class="g-50">
-  <div class="container" *ngIf="userService.isLoggedIn()">
-    <div class="bg-danger rounded-9" *ngIf="mostPopularGames.length == 0">
-      <h1 class="text-center my-5 p-4 text-light"><i class="fas fa-warning"></i>There are no games published games</h1>
-    </div>
-    <div class="d-inline-block" *ngFor="let game of mostPopularGames">
-      <app-game [game]="game"></app-game>
-    </div>
+  <div *ngIf="userService.isLoggedIn()">
+    <app-gamelist [games]="mostPopularGames"></app-gamelist>
   </div>
   <div *ngIf="!userService.isLoggedIn()">
     <app-home-jumbotron></app-home-jumbotron>
     <hr class="hr hr-blurry my-4">
     <app-home-info></app-home-info>
   </div>
-  <!--<button (click)="userService.all()">All</button>-->
-  <!--<button (click)="userService.user()">User</button>-->
 </div>

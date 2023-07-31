@@ -29,7 +29,7 @@ export class LoginComponent {
             this.toastr.error('Invalid username or password');
           },
           complete: () => {
-            this.router.navigateByUrl('/');
+            this.router.navigateByUrl('/').then(value => location.reload());
           }
         })
     }

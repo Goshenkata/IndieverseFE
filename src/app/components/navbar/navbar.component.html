@@ -38,8 +38,18 @@
           <button type="button" class="btn btn-success" mdbRipple (click)="goToRegister()">Register</button>
         </ng-template>
         <ng-template [ngIf]="userService.isLoggedIn()">
-          <button type="button" class="btn btn-outline-success me-2" mdbRipple rippleColor="dark" (click)="userService.logout();">
+          <button type="button" class="btn me-2 btn-tertiary text-success btn-lg" mdbRipple rippleColor="light"
+                  (click)="userService.logout();">
+            Publish
+          </button>
+          <button type="button" class="btn me-2 btn-tertiary text-success btn-lg" mdbRipple rippleColor="light"
+                  (click)="userService.logout();">
             Logout
+          </button>
+          <button type="button"
+                  (click)="openModal()"
+                  class="btn me-2 btn-tertiary text-dark btn-lg">
+            {{balance}}$
           </button>
         </ng-template>
       </ul>
@@ -55,6 +65,12 @@
         <ng-template [ngIf]="userService.isLoggedIn()">
           <li class="hamburgerLink rounded-3" mdbRipple>
             <a class="nav-link text-center" aria-current="page" (click)="userService.logout()" href="/">Logout</a>
+          </li>
+          <li class="hamburgerLink rounded-3" mdbRipple>
+            <a class="nav-link text-center" aria-current="page" href="/publish">Publish</a>
+          </li>
+          <li>
+            Balance: 122.00$
           </li>
         </ng-template>
 

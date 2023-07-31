@@ -68,4 +68,12 @@ export class UserService {
   ownsGame(id: number | undefined): Observable<boolean> {
     return this.http.get<boolean>('http://localhost:8080/games/owns/' + id)
   }
+
+  getBalance():Observable<SimpleMessage> {
+    return this.http.get<SimpleMessage>('http://localhost:8080/user/balance')
+  }
+
+  deposit(money: number) {
+    return this.http.post<SimpleMessage>('http://localhost:8080/user/deposit?money=' + money, this.options)
+  }
 }

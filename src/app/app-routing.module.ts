@@ -3,11 +3,16 @@ import { RouterModule, Routes } from '@angular/router';
 import {HomeComponent} from "./pages/home/home.component";
 import {RegisterComponent} from "./pages/register/register.component";
 import {LoginComponent} from "./pages/login/login.component";
+import {PublishComponent} from "./pages/publish/publish.component";
+import {AuthGuard} from "./guards/auth.guard";
+import {NotFoundComponent} from "./components/not-found/not-found.component";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'login', component: LoginComponent}
+  {path: 'login', component: LoginComponent},
+  {path: 'publish', component: PublishComponent, canActivate: [AuthGuard]},
+  {path: '**', pathMatch: 'full', component: NotFoundComponent}
 ];
 
 @NgModule({

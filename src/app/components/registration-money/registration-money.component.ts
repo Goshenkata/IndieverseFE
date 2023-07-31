@@ -30,7 +30,7 @@ export class RegistrationMoneyComponent {
         this.toastr.error(err.error.message);
       },
       complete: () => {
-        this.router.navigateByUrl('/');
+        this.router.navigateByUrl('/').then(r => location.reload());
       }
     })
   }
