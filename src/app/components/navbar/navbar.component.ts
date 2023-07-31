@@ -42,4 +42,5 @@ export class NavbarComponent implements OnInit {
   }
 
   protected readonly raceInit = raceInit;
+  protected readonly location = location;
 }

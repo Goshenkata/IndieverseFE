@@ -51,6 +51,10 @@
             Profile
           </button>
           <button type="button" class="btn me-2 btn-tertiary text-success btn-lg" mdbRipple rippleColor="light"
+                  (click)="router.navigateByUrl('/search')">
+            Search
+          </button>
+          <button type="button" class="btn me-2 btn-tertiary text-success btn-lg" mdbRipple rippleColor="light"
                   (click)="userService.logout();">
             Logout
           </button>
@@ -83,6 +87,9 @@
           </li>
           <li class="hamburgerLink rounded-3" mdbRipple>
             <a class="nav-link text-center" aria-current="page" [href]="'/user/' + userService.getUsername()">Profile</a>
+          </li>
+          <li class="hamburgerLink rounded-3" mdbRipple>
+            <a class="nav-link text-center" aria-current="page" href="/search">Search</a>
           </li>
           <li class="hamburgerLink rounded-3" mdbRipple>
             <a class="nav-link text-center" aria-current="page" (click)="openModal()">Balance: {{balance}}$</a>

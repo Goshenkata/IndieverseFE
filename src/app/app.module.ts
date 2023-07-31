@@ -43,6 +43,7 @@ import { DepositComponent } from './components/deposit/deposit.component';
 import { GamelistComponent } from './components/gamelist/gamelist.component';
 import { MygamesComponent } from './pages/mygames/mygames.component';
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
+import { SearchComponent } from './pages/search/search.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { UserProfileComponent } from './pages/user-profile/user-profile.componen
     GamelistComponent,
     MygamesComponent,
     UserProfileComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,

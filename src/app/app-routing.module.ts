@@ -8,6 +8,7 @@ import {AuthGuard} from "./guards/auth.guard";
 import {NotFoundComponent} from "./components/not-found/not-found.component";
 import {MygamesComponent} from "./pages/mygames/mygames.component";
 import {UserProfileComponent} from "./pages/user-profile/user-profile.component";
+import {SearchComponent} from "./pages/search/search.component";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'publish', component: PublishComponent, canActivate: [AuthGuard]},
   {path: 'mygames', component: MygamesComponent, canActivate: [AuthGuard]},
   {path: 'user/:username', component: UserProfileComponent, canActivate: [AuthGuard]},
+  {path: 'search', component: SearchComponent, canActivate: [AuthGuard]},
   {path: '**', pathMatch: 'full', component: NotFoundComponent}
 ];
 

@@ -4,6 +4,7 @@ import {Observable} from "rxjs";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {SimpleMessage} from "../models/SimpleMessage";
 import {GamePublish} from "../models/GamePublish";
+import {Search} from "../models/Search";
 
 @Injectable({
   providedIn: 'root'
@@ -42,5 +43,9 @@ export class GameService {
   getGamesForUser(username: string) {
 
     return this.http.get<Game[]>('\thttp://localhost:8080/games/user/' + username);
+  }
+
+  search(seachData: Search): Observable<Game[]> {
+    return this.http.post<Game[]>('http://localhost:8080/games/search', seachData, this.options)
   }
 }
